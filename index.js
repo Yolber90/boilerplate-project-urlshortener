@@ -20,8 +20,12 @@ app.get('/api/hello', function(req, res) {
 });
 
 app.get('/api/shorturl', function(req, res){
-  let url = req.protocol + '://' + req.get('host') + req.originalUrl;
-  res.json({"original_url": url})
+  let l_url = req.protocol + '://' + req.get('host') + req.originalUrl;
+  let s_url = req.protocol + '://' + req.get('host');
+  res.json({
+    "original_url": l_url,
+    "short_url": s_url
+  })
 })
 
 app.listen(port, function() {
